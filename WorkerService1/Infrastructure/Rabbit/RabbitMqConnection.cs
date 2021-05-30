@@ -13,7 +13,8 @@ namespace WorkerService1.Infrastructure.Rabbit
             _connectionString = connectionString;
         }
 
-        public IConnection Connection {
+        public IConnection Rabbit
+        {
             get
             {
                 lock (_sync)

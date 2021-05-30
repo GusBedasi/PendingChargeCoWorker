@@ -21,7 +21,7 @@ namespace WorkerService1.Infrastructure.EventBus
 
         public void ConsumeQueue()
         {
-            var channel = _connection.Connection.CreateModel();
+            var channel = _connection.Rabbit.CreateModel();
 
             channel.QueueDeclare(queue: "charges.pending.cancellation",
                 durable: false,

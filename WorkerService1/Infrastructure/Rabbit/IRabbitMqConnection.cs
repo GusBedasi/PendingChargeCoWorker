@@ -4,6 +4,6 @@ namespace WorkerService1.Infrastructure.Rabbit
 {
     public interface IRabbitMqConnection
     {
-        public IConnection Connection { get; }
+        public IConnection Rabbit { get; }
     }
 }
