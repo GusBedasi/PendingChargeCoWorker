@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WorkerService1.Models
+namespace WorkerService1.Infrastructure.Database
 {
     public class DatabaseOptions
     {

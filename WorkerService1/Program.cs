@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WorkerService1.Infrastructure.Database;
 using WorkerService1.Infrastructure.EventBus;
 using WorkerService1.Infrastructure.Rabbit;
-using WorkerService1.Models;
 using WorkerService1.Repository;
 
 namespace WorkerService1
