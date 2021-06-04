@@ -5,8 +5,8 @@ namespace WorkerService1.Infrastructure.Rabbit
 {
     public class RabbitMqConnection : IRabbitMqConnection
     {
-        private static readonly object _sync = new object();
-        public string _connectionString;
+        private static readonly object Sync = new object();
+        private readonly string _connectionString;
 
         public RabbitMqConnection(string connectionString)
         {
@@ -17,7 +17,7 @@ namespace WorkerService1.Infrastructure.Rabbit
         {
             get
             {
-                lock (_sync)
+                lock (Sync)
                 {
 
                     var factory = new ConnectionFactory()

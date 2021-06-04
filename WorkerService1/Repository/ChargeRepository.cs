@@ -21,6 +21,18 @@ namespace WorkerService1.Repository
         }
         public void Update(Charge charge)
         {
+            if (charge == null)
+            {
+                _logger.LogError("Charge cannot be null");
+                return;
+            }
+
+            if (charge.ExternalId == null || charge.PendingCancellation == null)
+            {
+                _logger.LogError("Charge's properties cannot be null");
+                return;
+            }
+            
             try
             {
                 using(IDbConnection db = new SqlConnection(_connectionString))
@@ -33,10 +45,10 @@ namespace WorkerService1.Repository
                         return;
                     }
 
-                    string sqlQuery = "UPDATE Charges SET PendingCancellation = " 
+                    var sqlQuery = "UPDATE Charges SET PendingCancellation = " 
                         + Convert.ToByte(charge.PendingCancellation)+ " WHERE ExternalId = '" + charge.ExternalId + "';";
 
-                    int rowsAffected = db.Execute(sqlQuery);
+                    var rowsAffected = db.Execute(sqlQuery);
 
                     _logger.LogInformation($"Charge payload: {JsonConvert.SerializeObject(charge)}");
                     _logger.LogInformation($"Rows affected: {rowsAffected}");

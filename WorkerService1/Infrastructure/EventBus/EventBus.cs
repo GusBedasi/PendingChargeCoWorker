@@ -36,6 +36,7 @@ namespace WorkerService1.Infrastructure.EventBus
                 var body = eventArgs.Body.ToArray();
 
                 var charge = Serializer.Deserialize<Charge>(body);
+
                 _chargeRepository.Update(charge);
             };
 
